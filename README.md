@@ -34,3 +34,17 @@ steps:
 
 ...
 ```
+
+## How Drone works?
+
+Drone consists of two main parts: <a href="https://docs.drone.io/installation/github/single-machine/">Server</a>, and <a href="https://docs.drone.io/administration/agents/">Agent(s)</a>. For single server/machine you just need drone server to do all the works for you. If you are running Drone in multi-server mode you will need to install one or more agents. 
+
+Drone Server is a master part, a central piece which serves user interface and exposes API. An agent (worker part) is a small daemon that is installed on a server instance, and it pulls jobs from Drone Server, executes them and pushes the results back. You can scale the system by adding more agents, so it can handle more jobs.
+
+Interesting to notice, Drone Agent only runs a single job at the time. So, if you want to run multiple jobs simultaneously you should set up more than one agent. This approach helps to keep things simple and improve fault tolerance. For example, if an agent fails it only affects a single job.
+
+Another interesting thing to know, Drone Agent is completely stateless. It’s designed to be able to fetch everything it needs for a build from somewhere else: docker registry, git repository, remote storage etc. It means spinning up a new agent is very fast and does not require any special provisioning or preparation.
+
+There is also <a href="https://docs.drone.io/cli/install/">drone-cli</a>, it provides command line interface to Drone Server API, as well as some other useful commands.
+
+### Build Process:
