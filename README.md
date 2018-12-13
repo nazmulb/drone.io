@@ -63,3 +63,27 @@ You are free to use any docker image in build steps, including 3rd party docker 
 Important to mention, there is no shared storage between builds, workspace destroyed after the build is complete, containers for steps are destroyed after each step. Instead, if you want to share some files between builds, you can use remote storage (eq. Google Cloud Storage or AWS S3) and additional steps in your pipeline to fetch or push data.
 
 ## What is the advantage and disadvantage of Drone?
+
+### Advantage:
+- We can build all jobs within a single file called `.drone.yml`. It is easy as CI configuration will be like any other source code repos which make it easy to share and backup. Only a few settings like secrets will be stored in encrypted format.
+- We don’t need to maintain the server as every job will be started in a new environment where all the dependencies will be installed by default.
+- Debugging is very easy as it shows all the execution details of individual step/job.
+- Hundreds of <a href="http://plugins.drone.io/">community plugins</a> are available to automate tasks and integrate with third party systems. See a partial list of plugins at the Plugin Marketplace or <a href="https://docs.drone.io/plugins/examples/bash/">create your own</a>.
+- Drone server runs as a container under docker and it can access host machine Docker socket and volume.
+- Very easy to setup and use.
+- It supports parallelism.
+
+### Disadvantage:
+- Very less documents/helps and community support.
+
+## Jenkins vs Drone:
+
+| Jenkins | Drone |
+| --- | --- |
+| Builds are configured using Jenkins UI and all settings of the jobs are stored on the Jenkins file system in Jenkins server which makes it difficult to share configuration details with team or organization. By cloning Github or other source repositories can’t copy info stored in Jenkins. | We can build all jobs within a single file called `.drone.yml`. It is easy as CI configuration will be like any other source code repos which make it easy to share and backup. Only a few settings like secrets will be stored in encrypted format. |
+| DevOps person or team need to maintain the Jenkins server by installing all dependencies and debug if any issues are there. | We don’t need to maintain the server as every job will be started in a new environment where all the dependencies will be installed by default. |
+|  Debugging will be a little bit difficult in Jenkins. | Debugging is very easy as it shows all the execution details of individual step/job. |
+| It doesn't have built-in support for Docker, the user needs to install and make it available in the built environment. | Drone server runs as a container under docker and it can access host machine Docker socket and volume. |
+| We can run multiple jobs or tests at a time using multi-threading but it may cause issues related to database and file systems which will be difficult to debug. | It has the inbuilt facility to support parallelism which can be done by changing project settings - using multiple containers at once. |
+
+## How to set up Drone for CI/CD Pipeline in local machine?
