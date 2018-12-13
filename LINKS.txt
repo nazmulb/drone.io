@@ -1,0 +1,8 @@
+https://www.digitalocean.com/community/tutorials/how-to-perform-continuous-integration-testing-with-drone-io-on-coreos-and-docker
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-drone-on-ubuntu-16-04
+https://medium.com/@sergey.kolodyazhnyy/continuous-delivery-with-drone-ci-3a3fea5aa83
+https://github.com/drone/drone
+https://stackoverflow.com/questions/tagged/drone.io
+https://www.imagescape.com/blog/2017/04/28/continuous-integration-and-deployment-drone-docker-django-gunicorn-and-nginx-part-2/
+https://akomljen.com/set-up-a-drone-ci-cd-pipeline-with-kubernetes/
+http://paislee.io/how-to-build-and-deploy-docker-images-with-drone/
