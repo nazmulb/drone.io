@@ -10,9 +10,9 @@
 
 ## What is Drone?
 
-Drone is a modern CI/CD platform built with a containers-first architecture. It enables you to conveniently set up projects to automatically build, test, and deploy as you make changes to your code. It's open source, highly configurable (every build step is executed by a container!) and has a lot of plugins available. Drone is built using Go and utilizes Docker. It can be run inside a container itself with very little configuration.
+Drone is a modern CI/CD platform built with a containers-first architecture. It enables you to conveniently set up projects to automatically build, test, and deploy as you make changes to your code. It's open source, highly configurable (every build step is executed by a container!) and has a lot of <a href="http://plugins.drone.io/">plugins</a> available. Drone is built using Go and utilizes Docker. It can be run inside a container itself with very little configuration.
 
-Pipelines are configured using a special YAML file that you check-in to your git repository. The syntax is designed to be easy to read and expressive so that anyone using the repository can understand the continuous delivery process.
+Pipelines are configured using a special <a href="https://docs.drone.io/user-guide/pipeline/steps/">YAML file</a> that you check-in to your git repository. The syntax is designed to be easy to read and expressive so that anyone using the repository can understand the continuous delivery process.
 
 ```
 ---
