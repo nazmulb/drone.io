@@ -48,3 +48,16 @@ Another interesting thing to know, Drone Agent is completely stateless. It’s d
 There is also <a href="https://docs.drone.io/cli/install/">drone-cli</a>, it provides command line interface to Drone Server API, as well as some other useful commands.
 
 ### Build Process:
+
+The idea behind Drone’s build process is very simple, but yet incredibly flexible. Every step in the build runs inside a container, which uses an image (<a href="http://plugins.drone.io/">plugins</a>) with tools required to execute the step. These containers share a workspace volume, so things you build in one step are available in the next.
+
+For example, a typical pipeline for Go project would be:
+
+- Create git container, execute git clone to checkout source code to the workspace.
+- Create golang container, execute go test and go build to run tests and build executable.
+- Create docker container, execute docker build and docker push to build docker image.
+- Create kubectl container, execute kubectl apply to deploy the project to the kubernetes cluster.
+
+You are free to use any docker image in build steps, including 3rd party docker registries. Anything you can put in the container can be used during a build. You can use existing applications or write your own.
+
+Important to mention, there is no shared storage between builds, workspace destroyed after the build is complete, containers for steps are destroyed after each step. Instead, if you want to share some files between builds, you can use remote storage (eq. Google Cloud Storage or AWS S3) and additional steps in your pipeline to fetch or push data.
