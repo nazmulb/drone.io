@@ -53,11 +53,13 @@ The idea behind Drone’s build process is very simple, but yet incredibly flexi
 
 For example, a typical pipeline for Go project would be:
 
-- Create git container, execute git clone to checkout source code to the workspace.
-- Create golang container, execute go test and go build to run tests and build executable.
-- Create docker container, execute docker build and docker push to build docker image.
-- Create kubectl container, execute kubectl apply to deploy the project to the kubernetes cluster.
+- Create git container, execute `git clone` to checkout source code to the workspace.
+- Create golang container, execute `go test` and `go build` to run tests and build executable.
+- Create docker container, execute `docker build` and `docker push` to build docker image.
+- Create kubectl container, execute `kubectl apply` to deploy the project to the kubernetes cluster.
 
 You are free to use any docker image in build steps, including 3rd party docker registries. Anything you can put in the container can be used during a build. You can use existing applications or write your own.
 
 Important to mention, there is no shared storage between builds, workspace destroyed after the build is complete, containers for steps are destroyed after each step. Instead, if you want to share some files between builds, you can use remote storage (eq. Google Cloud Storage or AWS S3) and additional steps in your pipeline to fetch or push data.
+
+## What is the advantage and disadvantage of Drone?
