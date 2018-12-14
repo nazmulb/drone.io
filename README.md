@@ -280,9 +280,9 @@ volumes:
     path: /var/run/docker.sock
 ```
 
-Let's me explain each steps and use of different plugins of drone:
+Let's me explain each step and use of different plugins of drone:
 
-- I am using <a href="http://plugins.drone.io/drone-plugins/drone-slack/">slack plugin</a> to send slack message to notify the start of the build process. Frist I created a new channel (e.g. `cicd`) in Slack. Then from Slack I added Drone app and set a webhook for Drone.
+- I am using <a href="http://plugins.drone.io/drone-plugins/drone-slack/">slack plugin</a> to send slack message for notifying the start of the build process. Frist, I created a new channel (e.g. `cicd`) in Slack. Then from Slack, I added Drone app and set a webhook for Drone.
 
 <img alt="Add apps..." src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/webhook.png" width="240px" />
 
