@@ -168,6 +168,7 @@ I have a <a href="https://github.com/nazmulb/node-microservice">node-microservic
 
 Add a very simple step in `.drone.yml` in the root of your repository and commit the change to the node-microservice repo. **We will add more steps later to have full CI/CD process.**
 
+.drone.yml
 ```
 kind: pipeline
 name: default
@@ -217,6 +218,8 @@ set -e
 docker pull nazmulb/node-microservice
 docker run --rm -d -p 7777:3000 --name nazmul_node_micro nazmulb/node-microservice
 ```
+
+.drone.yml
 ```
 kind: pipeline
 name: default
