@@ -196,4 +196,77 @@ If you activate the repo, Dorne will create a webhook automatically, please chec
 
 If I change any file from **node-microservice** repo and push that change then I can see the build progress from the drone server <a href="https://058a6cd6.ngrok.io">https://058a6cd6.ngrok.io</a>
 
+### Step 5 - Use Plugin:
+
+To setup all the steps for CI/CD pipeline we need to use different <a href="https://docs.drone.io/plugins/overview/">plugins of drone</a>. See a partial list of plugins at the Plugin Marketplace or <a href="https://docs.drone.io/plugins/examples/bash/">create your own</a>.
+
+build.sh
+```sh
+#!/bin/bash
+set -e
+
+npm install
+npm test
+```
+
+deploy.sh
+```sh
+#!/bin/bash
+set -e
+
+docker pull nazmulb/node-microservice
+docker run --rm -d -p 7777:3000 --name nazmul_node_micro nazmulb/node-microservice
+```
+```
+kind: pipeline
+name: default
+
+steps:
+- name: start-notify
+  image: plugins/slack
+  settings:
+    webhook: https://hooks.slack.com/services/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
+    channel: cicd
+    template: >
+        Build {{build.number}} of {{build.branch}} started. {{build.link}}
+- name: build
+  image: node:9.8.0
+  commands:
+  - sh ./.drone/build.sh
+- name: publish
+  image: plugins/docker
+  settings:
+    repo: nazmulb/node-microservice
+    auto_tag: true
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+  when:
+    branch:
+    - feature/*
+- name: deploy
+  image: docker
+  commands:
+  - sh ./.drone/deploy.sh
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
+- name: end-notify
+  image: plugins/slack
+  settings:
+    webhook: https://hooks.slack.com/services/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
+    channel: cicd
+    template: >
+      {{#success build.status}}
+        Build {{build.number}} of {{build.branch}} successful. {{build.link}}
+      {{else}}
+        Build {{build.number}} of {{build.branch}} failed. Please fix!. {{build.link}}
+      {{/success}}
+volumes:
+- name: docker
+  host:
+    path: /var/run/docker.sock
+```
+
 Enjoy :)
