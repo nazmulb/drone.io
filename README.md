@@ -86,7 +86,7 @@ Important to mention, there is no shared storage between builds, workspace destr
 | It doesn't have built-in support for Docker, the user needs to install and make it available in the built environment. | Drone server runs as a container under docker and it can access host machine Docker socket and volume. |
 | We can run multiple jobs or tests at a time using multi-threading but it may cause issues related to database and file systems which will be difficult to debug. | It has the inbuilt facility to support parallelism which can be done by changing project settings - using multiple containers at once. |
 
-## How to set up Drone for CI/CD Pipeline in local machine?
+## How to set up Drone for CI/CD Pipeline in your local host machine?
 
 ### Step 1 - Setup public URL:
 
