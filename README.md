@@ -196,7 +196,7 @@ If you activate the repo, Dorne will create a webhook automatically, please chec
 
 If I change any file from **node-microservice** repo and push that change then I can see the build progress from the drone server <a href="https://058a6cd6.ngrok.io">https://058a6cd6.ngrok.io</a>
 
-### Step 5 - Use Plugin:
+### Step 5 - Use Drone Plugins:
 
 To setup all the steps for CI/CD pipeline we need to use different <a href="https://docs.drone.io/plugins/overview/">plugins of drone</a>. See a partial list of plugins at the Plugin Marketplace or <a href="https://docs.drone.io/plugins/examples/bash/">create your own</a>.
 
