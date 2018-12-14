@@ -198,7 +198,7 @@ If I change any file from **node-microservice** repo and push that change then I
 
 ### Step 5 - Use Drone Plugins:
 
-To setup all the steps for CI/CD pipeline we need to use different <a href="https://docs.drone.io/plugins/overview/">plugins of drone</a>. See a partial list of plugins at the Plugin Marketplace or <a href="https://docs.drone.io/plugins/examples/bash/">create your own</a>.
+To setup all the steps for CI/CD pipeline we need to use different <a href="https://docs.drone.io/plugins/overview/">plugins of drone</a>. See a partial list of plugins at the <a href="http://plugins.drone.io/">Plugin Marketplace</a> or <a href="https://docs.drone.io/plugins/examples/bash/">create your own</a>.
 
 build.sh
 ```sh
