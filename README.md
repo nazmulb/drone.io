@@ -118,7 +118,7 @@ After clicking Register application, you will see the details for your new appli
 
 The Client ID and Secret are used to authorize access to GitHub resources.
 
-### Step 3 - Setup Drone server:
+### Step 3 - Launch The Drone Container:
 
 Pull Drone server which is a distributed lightweight Docker image. 
 
@@ -154,7 +154,7 @@ docker run \
   drone/drone:1.0.0-rc.1
 ```
 
-You have to set `volume`, `DRONE_GITHUB_CLIENT_ID`, `DRONE_GITHUB_CLIENT_SECRET` and `DRONE_SERVER_HOST`.
+You have to set `volume`, `DRONE_GITHUB_CLIENT_ID`, `DRONE_GITHUB_CLIENT_SECRET`, `DRONE_SERVER_HOST` and `publish`. I have changed port to `8090` for publishing.
 
 You also have to create an <a href="https://docs.drone.io/administration/user/admins/">Admin user</a> by setting `DRONE_USER_CREATE` to enable or disable trusted mode for a repository. If trusted mode is enabled, the repository pipelines have access to privileged capabilities, including the ability to start privileged containers and mount host machine volumes. **It will help you to deploy your repo image as a container in your local host machine.**
 
@@ -179,5 +179,19 @@ steps:
   - npm install
   - npm test
 ```
+
+### Step 5 - Setup Drone Server:
+
+Now we're ready to set up Drone with the GitHub account. Open your web browser and navigate to: https://058a6cd6.ngrok.io. You will be asked to login (if not) into your GitHub and need to give the permission to sync your repos in the Drone server.
+
+<img alt="sync repos" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/sync-repos.png" width="950px" />
+
+This is the main dashboard for Drone, you can see the three most recent repositories in your GitHub account, and expand the list by clicking "Show all repositories". If all of your repos do not appear, simply click "SYNC" in the upper right hand corner.
+
+Please click "ACTIVATE" node-microservice repo where you have .drone.yml to activate. 
+
+If you activate the repo, Dorne will create a webhook automatically, please check it from your repo.
+
+<img alt="sync repos" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/webhook.png" width="950px" />
 
 Enjoy :)
