@@ -299,4 +299,50 @@ When all the steps are being done you will get your service up and running. You 
 
 <img alt="Website" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/browse-website.png" width="350px" />
 
+## CLI Installation:
+
+The Drone command line tools are used to interact with the Drone from the command line, and provides important utilities for managing users and repository settings.
+
+```
+brew tap drone/drone
+brew install drone
+```
+
+### CLI Configuration:
+
+The command line tools interact with the server using REST endpoints. You will need to provide the CLI tools with the server addresses and your personal authorization token. You can find your authorization token in your Drone account settings (<a href="https://058a6cd6.ngrok.io/account">https://058a6cd6.ngrok.io/account</a>).
+
+Add the following in `.zshrc` file:
+
+```
+export DRONE_SERVER=https://058a6cd6.ngrok.io
+export DRONE_TOKEN=a9xIbVvuyChw9v6s8IoRZK57TUlD0cQQ
+```
+
+#### Some useful commends of CLI:
+
+This subcommand executes a local build:
+
+```
+drone exec default
+```
+
+To activate a repo from CLI:
+
+```
+drone repo enable nazmulb/node-microservice
+```
+
+To deactivate:
+
+```
+drone repo disable nazmulb/node-microservice
+```
+
+This subcommand prints the named repository details:
+
+```
+drone repo info octocat/hello-world
+```
+
 Enjoy :)
