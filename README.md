@@ -156,5 +156,6 @@ docker run \
 
 You have to set `volume`, `DRONE_GITHUB_CLIENT_ID`, `DRONE_GITHUB_CLIENT_SECRET` and `DRONE_SERVER_HOST`.
 
-You also have to create an <a href="https://docs.drone.io/administration/user/admins/">Admin user</a> by setting `DRONE_USER_CREATE` to enable or disable trusted mode for a repository. If trusted mode is enabled, the repository pipelines have access to privileged capabilities, including the ability to start privileged containers and mount host machine volumes.
+You also have to create an <a href="https://docs.drone.io/administration/user/admins/">Admin user</a> by setting `DRONE_USER_CREATE` to enable or disable trusted mode for a repository. If trusted mode is enabled, the repository pipelines have access to privileged capabilities, including the ability to start privileged containers and mount host machine volumes. **It will help you to deploy your repo image as a container in your local host machine.**
 
+Enjoy :)
