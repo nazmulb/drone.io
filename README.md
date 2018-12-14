@@ -282,10 +282,14 @@ volumes:
 
 Let's me explain each step by using different plugins of drone:
 
-- I am using <a href="http://plugins.drone.io/drone-plugins/drone-slack/">slack plugin</a> to send slack message for notifying the start of the build process. Frist, I created a new channel (e.g. `cicd`) in Slack. Then from Slack, I added Drone app and set a webhook for Drone.
+- I am using <a href="http://plugins.drone.io/drone-plugins/drone-slack/">slack plugin</a> to send slack message for notifying the start and end of the build process. Frist, I created a new channel (e.g. `cicd`) in Slack. Then from Slack, I added Drone app and set a webhook for Drone.
 
 <img alt="Add apps..." src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/add-apps.png" width="240px" />
 
 <img alt="Incoming Webhooks" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/incoming-webhooks.png" width="500px" />
+
+- <a href="http://plugins.drone.io/drone-plugins/drone-docker/">docker plugin</a> will help you to publish your image to <a href="https://hub.docker.com/">docker hub</a>. We need to save docker username and password under Drone secret. You can do it from Drone <a href="https://docs.drone.io/user-guide/secrets/pre-repository/">repository settings</a>.
+
+<img alt="Add Secrets" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/add-secrets.png" width="650px" />
 
 Enjoy :)
