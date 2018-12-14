@@ -158,4 +158,24 @@ You have to set `volume`, `DRONE_GITHUB_CLIENT_ID`, `DRONE_GITHUB_CLIENT_SECRET`
 
 You also have to create an <a href="https://docs.drone.io/administration/user/admins/">Admin user</a> by setting `DRONE_USER_CREATE` to enable or disable trusted mode for a repository. If trusted mode is enabled, the repository pipelines have access to privileged capabilities, including the ability to start privileged containers and mount host machine volumes. **It will help you to deploy your repo image as a container in your local host machine.**
 
+### Step 4 - Add Pipeline:
+
+Drone looks for a special `.drone.yml` file in the root of your repository for the <a href="https://docs.drone.io/user-guide/pipeline/steps/">pipeline definition</a>. This file will help you to configure a build pipeline for your repository.
+
+I have a <a href="https://github.com/nazmulb/node-microservice">node-microservice</a> sample project repo, I am going to use this repo for this setup.
+
+Add a very simple step in `.drone.yml` and commit the change to the node-microservice repo. **We will add more steps later to have full CI/CD process.**
+
+```
+kind: pipeline
+name: default
+
+steps:
+- name: test
+  image: node:9.8.0
+  commands:
+  - npm install
+  - npm test
+```
+
 Enjoy :)
