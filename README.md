@@ -192,6 +192,6 @@ Please click "ACTIVATE" node-microservice repo where you have .drone.yml to acti
 
 If you activate the repo, Dorne will create a webhook automatically, please check it from your repo.
 
-<img alt="sync repos" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/webhook.png" width="950px" />
+<img alt="webhook" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/webhook.png" width="950px" />
 
 Enjoy :)
