@@ -290,7 +290,7 @@ Let's me explain each step by using different plugins of drone:
 
 - <a href="http://plugins.drone.io/drone-plugins/drone-docker/">docker plugin</a> will help you to publish your image to <a href="https://hub.docker.com/">docker hub</a>. We need to save docker username and password under Drone secret. You can do it from Drone <a href="https://docs.drone.io/user-guide/secrets/pre-repository/">repository settings</a>.
 
-- You need docker image to deploy the repo as container in your local host machine. And you also need to mount host machine volumes but to do it you have to go to the repository settings and set the Project settings as Trusted.
+- You need docker image to deploy the repo as container in your local host machine. And you also need to mount host machine volumes and to do it you have to go to the repository settings and set the Project settings as Trusted.
 
 <img alt="Add Secrets" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/add-secrets.png" width="650px" />
 
