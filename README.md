@@ -188,7 +188,7 @@ Now we're ready to set up Drone with the GitHub account. Open your web browser a
 
 This is the main dashboard for Drone, you can see the most recent repositories in your GitHub account, and expand the list by clicking "Show all repositories". If all of your repos do not appear, simply click "SYNC" in the upper right hand corner.
 
-Please click "ACTIVATE" **node-microservice** repo where you have .drone.yml to activate. 
+Please click "ACTIVATE" **node-microservice** repo where you have `.drone.yml` to activate. 
 
 If you activate the repo, Dorne will create a webhook automatically, please check it from your repo.
 
