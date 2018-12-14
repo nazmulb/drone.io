@@ -164,6 +164,8 @@ Drone looks for a special `.drone.yml` file in the root of your repository for t
 
 I have a <a href="https://github.com/nazmulb/node-microservice">node-microservice</a> sample project repo, I am going to use this repo for this setup.
 
+<img alt="node-microservice repo" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/node-micro.png" width="420px" />
+
 Add a very simple step in `.drone.yml` in the root of your repository and commit the change to the node-microservice repo. **We will add more steps later to have full CI/CD process.**
 
 ```
@@ -177,6 +179,5 @@ steps:
   - npm install
   - npm test
 ```
-<img alt="node-microservice repo" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/node-micro.png" width="420px" />
 
 Enjoy :)
