@@ -105,3 +105,15 @@ Now run the following command to setup public URL for exposing your local web se
 ```
 ngrok http 8090
 ```
+
+### Step 2 - Create a GitHub OAuth Application:
+
+Here we will use GitHub and single-machine mode to run the Drone server. Please go to OAuth Apps under <a href="https://github.com/settings/developers">Developer settings</a>. Now register a new OAuth application by filling the form:
+
+<img alt="Register a new OAuth application" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/oauth.png" width="650px" />
+
+After clicking Register application, you will see the details for your new application. The two items we need are the **Client ID** and the **Client Secret**:
+
+<img alt="Client ID & Secret" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/client-secret.png" width="450px" />
+
+The Client ID and Secret are used to authorize access to GitHub resources.
