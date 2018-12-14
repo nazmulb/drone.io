@@ -88,6 +88,8 @@ Important to mention, there is no shared storage between builds, workspace destr
 
 ## How to set up Drone for CI/CD Pipeline in your local host machine?
 
+[![Drone for CI/CD](https://raw.githubusercontent.com/nazmulb/drone.io/master/images/video.png)](https://youtu.be/eQGopMNbu-0)
+
 ### Step 1 - Setup public URL:
 
 We need to setup public URL for exposing our local web server and it will help us to create webhook for Github.
