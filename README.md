@@ -177,6 +177,6 @@ steps:
   - npm install
   - npm test
 ```
-<img alt="node-microservice repo" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/client-secret.png" width="420px" />
+<img alt="node-microservice repo" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/node-micro.png" width="420px" />
 
 Enjoy :)
