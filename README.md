@@ -194,4 +194,6 @@ If you activate the repo, Dorne will create a webhook automatically, please chec
 
 <img alt="webhook" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/webhook.png" width="950px" />
 
+If I change any file from node-microservice repo and push that change then I can see the build progress from the drone server https://058a6cd6.ngrok.io
+
 Enjoy :)
