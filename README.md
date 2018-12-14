@@ -297,6 +297,6 @@ Now If I change any file from **node-microservice** repo and push that change th
 
 When all the steps are being done you will get your service up and running. You can browse it using <a href="http://localhost:7777">http://localhost:7777</a>
 
-<img alt="Website" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/website.png" width="350px" />
+<img alt="Website" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/browse-website.png" width="350px" />
 
 Enjoy :)
