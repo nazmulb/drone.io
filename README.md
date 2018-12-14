@@ -201,7 +201,14 @@ If I change any file from **node-microservice** repo and push that change then I
 
 To setup all the steps for CI/CD pipeline we need to use different <a href="https://docs.drone.io/plugins/overview/">plugins of drone</a>. See a partial list of plugins at the <a href="http://plugins.drone.io/">Plugin Marketplace</a> or <a href="https://docs.drone.io/plugins/examples/bash/">create your own</a>.
 
-build.sh
+Please add a folder `.drone` in the root of the repo. Add two shell script files (`build.sh` & `deploy.sh`) under the `.drone` folder.
+
+```
+mkdir .drone && cd .drone
+touch build.sh && touch deploy.sh
+```
+
+Add the commends to build in `build.sh` file:
 ```sh
 #!/bin/bash
 set -e
@@ -210,6 +217,7 @@ npm install
 npm test
 ```
 
+Add the commends to deploy in `deploy.sh` file:
 deploy.sh
 ```sh
 #!/bin/bash
@@ -219,7 +227,7 @@ docker pull nazmulb/node-microservice
 docker run --rm -d -p 7777:3000 --name nazmul_node_micro nazmulb/node-microservice
 ```
 
-.drone.yml
+At the end we will prepare the below steps of `.drone.yml` for full CI/CD pipeline:
 ```
 kind: pipeline
 name: default
@@ -271,5 +279,13 @@ volumes:
   host:
     path: /var/run/docker.sock
 ```
+
+Let's me explain each steps and use of different plugins of drone:
+
+- I am using <a href="http://plugins.drone.io/drone-plugins/drone-slack/">slack plugin</a> to send slack message to notify the start of the build process. Frist I created a new channel (e.g. `cicd`) in Slack. Then from Slack I added Drone app and set a webhook for Drone.
+
+<img alt="Add apps..." src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/webhook.png" width="240px" />
+
+<img alt="Incoming Webhooks" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/incoming-webhooks.png" width="500px" />
 
 Enjoy :)
