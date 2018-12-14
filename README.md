@@ -253,9 +253,6 @@ steps:
       from_secret: docker_username
     password:
       from_secret: docker_password
-  when:
-    branch:
-    - feature/*
 - name: deploy
   image: docker
   commands:
@@ -293,5 +290,13 @@ Let's me explain each step by using different plugins of drone:
 - You need docker image to deploy the repo as container in your local host machine. And you also need to mount host machine volumes and to do it you have to go to the repository settings and set the Project settings as Trusted.
 
 <img alt="Add Secrets" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/add-secrets.png" width="650px" />
+
+Now If I change any file from **node-microservice** repo and push that change then I can see the full CI/CD process steps from the drone server <a href="https://058a6cd6.ngrok.io">https://058a6cd6.ngrok.io</a>
+
+<img alt="Drone" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/drone.png" width="950px" />
+
+When all the steps are being done you will get your service up and running. You can browse it using <a href="http://localhost:7777">http://localhost:7777</a>
+
+<img alt="Website" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/website.png" width="350px" />
 
 Enjoy :)
