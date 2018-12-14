@@ -87,3 +87,21 @@ Important to mention, there is no shared storage between builds, workspace destr
 | We can run multiple jobs or tests at a time using multi-threading but it may cause issues related to database and file systems which will be difficult to debug. | It has the inbuilt facility to support parallelism which can be done by changing project settings - using multiple containers at once. |
 
 ## How to set up Drone for CI/CD Pipeline in local machine?
+
+### Step 1 - Setup public URL:
+
+We need to setup public URL for exposing our local web server and it will help us to create webhook for Github.
+
+Please <a href="https://ngrok.com/download">download and install ngrok</a>. Move ngrok to any folder from where you can use/refer it.
+
+Run `./ngrok authtoken <YOUR_AUTH_TOKEN>` command from that folder. Add the path of the folder in `.zshrc` file so that you can run `ngrok` command from anywhere.
+
+```
+export PATH="/Volumes/Macintosh HD/Users/nazmulbasher/Public":$PATH
+```
+
+Now run the following command to setup public URL for exposing your local web server:
+
+```
+ngrok http 8090
+```
