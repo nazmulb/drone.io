@@ -117,3 +117,44 @@ After clicking Register application, you will see the details for your new appli
 <img alt="Client ID & Secret" src="https://raw.githubusercontent.com/nazmulb/drone.io/master/images/client-secret.png" width="450px" />
 
 The Client ID and Secret are used to authorize access to GitHub resources.
+
+### Step 3 - Setup Drone server:
+
+Pull Drone server which is a distributed lightweight Docker image. 
+
+```
+docker pull drone/drone:1.0.0-rc.1
+```
+
+Create a folder to hold the sqlite database for drone:
+
+```
+mkdir -p /Volumes/MyComputer/projects/htdocs/drone.io/drone
+```
+
+The server container can be started with the below command. The container is configured through environment variables. For a full list of configuration parameters, please see the <a href="https://docs.drone.io/reference/">configuration reference</a>.
+
+```
+docker run \
+  --volume=/var/run/docker.sock:/var/run/docker.sock \
+  --volume=/Volumes/MyComputer/projects/htdocs/drone.io/drone:/data \
+  --env=DRONE_GITHUB_SERVER=https://github.com \
+  --env=DRONE_GITHUB_CLIENT_ID=c4f21e0e9c3c678e7307 \
+  --env=DRONE_GITHUB_CLIENT_SECRET=378f942b6fbc9c0462e6ef96c9186521bd47dfeb \
+  --env=DRONE_RUNNER_CAPACITY=2 \
+  --env=DRONE_SERVER_HOST=058a6cd6.ngrok.io \
+  --env=DRONE_SERVER_PROTO=https \
+  --env=DRONE_TLS_AUTOCERT=true \
+  --env=DRONE_USER_CREATE=username:nazmulb,admin:true \
+  --publish=8090:80 \
+  --publish=443:443 \
+  --restart=always \
+  --detach=true \
+  --name=drone \
+  drone/drone:1.0.0-rc.1
+```
+
+You have to set `volume`, `DRONE_GITHUB_CLIENT_ID`, `DRONE_GITHUB_CLIENT_SECRET` and `DRONE_SERVER_HOST`.
+
+You also have to create an <a href="https://docs.drone.io/administration/user/admins/">Admin user</a> by setting `DRONE_USER_CREATE` to enable or disable trusted mode for a repository. If trusted mode is enabled, the repository pipelines have access to privileged capabilities, including the ability to start privileged containers and mount host machine volumes.
+
