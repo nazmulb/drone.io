@@ -1,5 +1,5 @@
 # Drone CI
-
+# Difference between CI/CD
 ## What is CI/CD? 
 
 **Continuous Integration (CI)** - is the practice of merging all developer working copies to a shared mainline several times a day. A complementary practice to CI is that before submitting work, each programmer must do a complete build and run (and pass) all unit tests. Integration tests are usually run automatically on a CI server (Jenkins/Drone/CercleCI) when it detects a new commit.
